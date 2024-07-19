@@ -15,7 +15,7 @@ jobs:
         runs-on: ubuntu-latest
         needs: job1
         steps:
-            - uses: actions/download-artifact
+            - uses: actions/download-artifact@v4
               with:
                 name: file
             - run: cat mani.txt
