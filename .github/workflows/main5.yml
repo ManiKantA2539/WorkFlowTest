@@ -27,7 +27,7 @@ jobs:
               id: a
               run: |
                 echo "status=single">>$GITHUB_OUTPUT
-                echo "age=$($(date + "%Y")-2002)">>$GITHUB_OUTPUT
+                echo "age=$($(date + '%Y')-2002)">>$GITHUB_OUTPUT
             - name: access variables
               run:
                 echo "The status is ${{steps.a.outputs.status}}"
