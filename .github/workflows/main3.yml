@@ -3,6 +3,6 @@ on: workflow_dispatch
 jobs:
     mainjob:
         name: print env
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         steps:
-            - run: echo "env $GITHUB_REPOSITORY" 
+            - run: echo "$GITHUB_ACTION" 
