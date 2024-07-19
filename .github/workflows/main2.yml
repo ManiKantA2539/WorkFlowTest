@@ -5,17 +5,14 @@ jobs:
         name: windows env
         runs-on: windows-latest
         steps:
-            - name: win
-              run: env
+            - run: env
     secondjob:
         name: linux env
         runs-on: ubuntu-latest
         steps:
-            - name: linux
-              run: env
+            - run: env
     thirdjob:
         name: mac env
         runs-on: macos-latest
         steps:
-            - name: mac
-              run: env
+            - run: env
