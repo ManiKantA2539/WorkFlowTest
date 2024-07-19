@@ -12,5 +12,5 @@ jobs:
             - name: another env
               run: |
                 echo: echo "$secret"
-                echo: echo "${{secrets.GOOD_SECRET}}"
+                echo: echo " My secret ${{secrets.GOOD_SECRET}}"
         
