@@ -15,8 +15,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: job1
         steps:
-        
-            
             - uses: actions/download-artifact
               with:
                 name: file
