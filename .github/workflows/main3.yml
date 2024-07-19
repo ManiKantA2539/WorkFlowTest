@@ -1,7 +1,7 @@
-name: print some env
+name: print created env
 on: workflow_dispatch
 env: 
-    secret: secrets.GOOD_SECRET
+    secret: $secrets.GOOD_SECRET
 jobs:
     mainjob:
         name: print env
