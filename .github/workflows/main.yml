@@ -22,3 +22,4 @@ jobs:
             echo "test ${{env.test}}"
         env:
             age : 21
+            test: t1
