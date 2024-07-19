@@ -11,7 +11,7 @@ jobs:
               id: b
               run: |
                 echo "name=mani" >> $GITHUB_ENV
-                echo "::set-output name=name::Mani"
+                echo "name=Mani" >> $GITHUB_OUTPUT
 
             - name: accessing variables through env
               run: |
@@ -26,12 +26,12 @@ jobs:
             - name: set variables
               id: a
               run: |
-                echo "::set-output name=status::single"
-                echo "::set-output name=age::$($(date+"%Y")-2002)"
+                echo "status=single">>$GITHUB_OUTPUT
+                echo "age=$($(date + "%Y")-2002)">>$GITHUB_OUTPUT
             - name: access variables
               run:
                 echo "The status is ${{steps.a.outputs.status}}"
-                echo "The status is ${{steps.a.outputs.age}}"
+                echo "The age is ${{steps.a.outputs.age}}"
         outputs:
             op1: ${{steps.a.outputs.status}}
             op2: ${{steps.a.outputs.age}}
