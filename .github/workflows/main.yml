@@ -14,6 +14,8 @@ jobs:
         test: v1
 
     steps:
+      - name: ne job
+        run: echo "Hola"  
       - name: print env vars
         run: |
             echo "Name is $name"
