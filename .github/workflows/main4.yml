@@ -9,5 +9,5 @@ jobs:
             url: https://google.com
         steps:
             - name: Get secret from enivornment
-              run: echo " Secret:${{secrets.Good_Secret}}"
+              run: echo " Secret:$secrets.Good_Secret"
               
