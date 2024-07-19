@@ -1,8 +1,10 @@
 name: print some env
 on: workflow_dispatch
+env: 
+    secret: secrets.GOOD_SECRET
 jobs:
     mainjob:
         name: print env
         runs-on: ubuntu-latest
         steps:
-            - run: echo "$GITHUB_ACTOR" 
+            - run: echo $secret
