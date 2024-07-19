@@ -5,14 +5,5 @@ jobs:
         name: windows env
         runs-on: windows-latest
         steps:
-            - run: env
-    secondjob:
-        name: linux env
-        runs-on: ubuntu-latest
-        steps:
-            - run: env
-    thirdjob:
-        name: mac env
-        runs-on: macos-latest
-        steps:
-            - run: env
+            - run: |
+                echo $GITHUB_ENV
