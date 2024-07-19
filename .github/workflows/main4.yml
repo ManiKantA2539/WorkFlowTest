@@ -6,8 +6,8 @@ jobs:
         runs-on: windows-latest
         environment: 
             name: deploy
-            url: www.google.com
+            url: https://google.com
         steps:
             - name: Get secret from enivornment
-              run: echo "${{secrets.Good_Secret}}"
+              run: echo " Secret:${{secrets.Good_Secret}}"
               
