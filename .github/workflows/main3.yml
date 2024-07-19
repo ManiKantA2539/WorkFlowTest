@@ -1,16 +1,23 @@
-name: print created env
+name: upload and download artifacts
 on: workflow_dispatch
-env: 
-    secret: ${{secrets.GOOD_SECRET}}
 jobs:
-    mainjob:
+    job1:
         runs-on: ubuntu-latest
         steps:
-            - name: print env
-              run: echo "$secret"
+            - name: upload artifact 
+              run: echo "This is text" >mani.txt
 
-            - name: another env
-              run: |
-                echo "$secret"
-                echo " My secret ${{secrets.GOOD_SECRET}}"
+            - uses: actions/upload-artifact@v4
+              with:
+                name: file
+                path: mani.txt
+    job2:
+        runs-on: ubuntu-latest
+        needs: job1
+        steps:
         
+            
+            - uses: actions/download-artifact
+              with:
+                name: file
+            - run: cat mani.txt
