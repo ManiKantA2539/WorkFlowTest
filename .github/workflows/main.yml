@@ -1,8 +1,24 @@
-name: hello-world
-on: push
+name: workflow-1
+on: 
+    workflow_dispatch
+
+env:
+    name: mani
+    test: tested
 jobs:
   my-job:
+    name: crazy job
     runs-on: ubuntu-latest
+    env: 
+        gen: M
+
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: print env vars
+        run: |
+            echo "Name is $name"
+            echo "Age is $age"
+            echo "Gender is $gen"
+            echo "test $test"
+            echo "test ${env.test}
+        env:
+            age : 21
