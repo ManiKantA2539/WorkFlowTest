@@ -19,6 +19,6 @@ jobs:
             echo "Age is $age"
             echo "Gender is $gen"
             echo "test $test"
-            echo "test ${env.test}
+            echo "test ${env.test}"
         env:
             age : 21
