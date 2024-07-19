@@ -1,0 +1,10 @@
+name: assign variables
+
+on: workflow_dispatch
+
+jobs:
+    job1:
+        name: env job
+        runs-on: ubuntu-latest
+        steps:
+            - name: 
