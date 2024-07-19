@@ -5,5 +5,4 @@ jobs:
         name: windows env
         runs-on: windows-latest
         steps:
-            - run: |
-                echo env
+            - run: env
