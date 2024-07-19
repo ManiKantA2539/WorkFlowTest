@@ -1,10 +1,10 @@
 name: print created env
 on: workflow_dispatch
 env: 
-    secret: $secrets.GOOD_SECRET
+    secret: ${{secrets.GOOD_SECRET}}
 jobs:
     mainjob:
         name: print env
         runs-on: ubuntu-latest
         steps:
-            - run: echo $secret
+            - run: echo "$secret"
