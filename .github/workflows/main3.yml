@@ -4,7 +4,13 @@ env:
     secret: ${{secrets.GOOD_SECRET}}
 jobs:
     mainjob:
-        name: print env
         runs-on: ubuntu-latest
         steps:
-            - run: echo "$secret"
+            - name: print env
+              run: echo "$secret"
+
+            - name: another env
+              run: |
+                echo: echo "$secret
+                echo: echo "${{secrets.GOOD_SECRET}}"
+        
