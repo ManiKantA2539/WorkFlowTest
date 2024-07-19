@@ -26,15 +26,17 @@ jobs:
             - name: set variables
               id: a
               run: |
-                echo "status=single">>$GITHUB_OUTPUT
-                echo "age=$($(date + '%Y')-2002)">>$GITHUB_OUTPUT
+                echo "status=single" >> $GITHUB_OUTPUT
+                age=$(( $(date +'%Y') - 2002 ))
+                echo "age=$age" >> $GITHUB_OUTPUT
+
             - name: access variables
-              run:
-                echo "The status is ${{steps.a.outputs.status}}"
-                echo "The age is ${{steps.a.outputs.age}}"
+              run: |
+                echo "The status is ${{ steps.a.outputs.status }}"
+                echo "The age is ${{ steps.a.outputs.age }}"
         outputs:
-            op1: ${{steps.a.outputs.status}}
-            op2: ${{steps.a.outputs.age}}
+            op1: ${{ steps.a.outputs.status }}
+            op2: ${{ steps.a.outputs.age }}
     job3:
         name: access job2 variables
         runs-on: windows-latest
