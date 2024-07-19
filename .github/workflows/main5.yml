@@ -7,4 +7,43 @@ jobs:
         name: env job
         runs-on: ubuntu-latest
         steps:
-            - name: 
+            - name: set variables through env
+              id: b
+              run: |
+                echo "name=mani" >> $GITHUB_ENV
+                echo "::set-output name=name::Mani"
+
+            - name: accessing variables through env
+              run: |
+                echo "The name is ${{env.name}}"
+        outputs:
+          op3: ${{steps.b.outputs.name}}
+
+    job2:
+        name: create variable job
+        runs-on: ubuntu-latest
+        steps:
+            - name: set variables
+              id: a
+              run: |
+                echo "::set-output name=status::single"
+                echo "::set-output name=age::$($(date+"%Y")-2002)"
+            - name: access variables
+              run:
+                echo "The status is ${{steps.a.outputs.status}}"
+                echo "The status is ${{steps.a.outputs.age}}"
+        outputs:
+            op1: ${{steps.a.outputs.status}}
+            op2: ${{steps.a.outputs.age}}
+    job3:
+        name: access job2 variables
+        runs-on: windows-latest
+        needs: 
+            - job2
+            - job1
+        steps:
+            - name: access another job variables
+              run: |
+                echo "The Name is ${{needs.job1.outputs.op3}}"
+                echo "The relation is ${{needs.job2.outputs.op1}}"
+                echo "The age is ${{needs.job2.outputs.op2}} Years!!!"
